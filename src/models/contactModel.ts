@@ -1,6 +1,15 @@
-import mongoose, { Schema, models } from "mongoose";
+import mongoose, { Schema, Document, Model } from "mongoose";
 
-const contactSchema = new Schema(
+export interface IContact extends Document {
+  name: string;
+  email: string;
+  phone?: string;
+  message: string;
+  createdAt: Date;
+  updatedAt: Date;
+}
+
+const contactSchema = new Schema<IContact>(
   {
     name: { type: String, required: true },
     email: { type: String, required: true },
@@ -10,5 +19,8 @@ const contactSchema = new Schema(
   { timestamps: true }
 );
 
-const Contact = models.Contact || mongoose.model("Contact", contactSchema);
+// Prevent model overwrite in dev
+const Contact: Model<IContact> =
+  mongoose.models.Contact || mongoose.model<IContact>("Contact", contactSchema);
+
 export default Contact;

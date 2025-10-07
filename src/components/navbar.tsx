@@ -39,7 +39,9 @@ export default function Navbar() {
 
         {/* Desktop CTA */}
         <div className="hidden md:block">
-          <Button>Sign In</Button>
+           <Link href='/register'>
+
+                <Button className="mt-2">Emroll now</Button></Link>
         </div>
 
         {/* Mobile Menu */}
@@ -62,7 +64,9 @@ export default function Navbar() {
                     {item.name}
                   </Link>
                 ))}
-                <Button className="mt-4">Sign In</Button>
+                <Link href='/register'>
+
+                <Button className="mt-2">Emroll now</Button></Link>
               </nav>
             </SheetContent>
           </Sheet>
