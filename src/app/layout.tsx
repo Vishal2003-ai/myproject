@@ -4,7 +4,7 @@ import Footer from "@/components/footer";
 
 export const metadata = {
   title: "SRD-Edu",
-  description: "Next.js + shadcn UI demo",
+  description: "Education",
 };
 
 export default function RootLayout({
