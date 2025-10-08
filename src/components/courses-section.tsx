@@ -4,30 +4,31 @@ import { motion } from "framer-motion";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { BookOpen, Code, Monitor } from "lucide-react";
+import Link from "next/link";
 
 export default function CoursesSection() {
   const computerCourses = [
-    { title: "CCC", desc: "Course on Computer Concepts – Government certified basic computer course.", icon: BookOpen },
-    { title: "O Level", desc: "NIELIT certified foundational IT course for professional skills.", icon: BookOpen },
-    { title: "DCA", desc: "Diploma in Computer Applications – ideal for office & data management skills.", icon: BookOpen },
-    { title: "ADCA", desc: "Advanced Diploma in Computer Applications – professional-level computer education.", icon: BookOpen },
-    { title: "MDCA", desc: "Master Diploma in Computer Applications – complete IT training course.", icon: BookOpen },
-    { title: "PGDCA", desc: "Post Graduate Diploma in Computer Applications – advanced IT qualification.", icon: BookOpen },
-    { title: "Basic Computer", desc: "Fundamentals of computer, MS Office, Internet, and Typing.", icon: BookOpen },
-    { title: "Advance Excel", desc: "Master Excel functions, formulas, and data analysis tools.", icon: BookOpen },
+    { title: "CCC", slug: "ccc", desc: "Course on Computer Concepts – Government certified basic computer course.", icon: BookOpen },
+    { title: "O Level", slug: "o-level", desc: "NIELIT certified foundational IT course for professional skills.", icon: BookOpen },
+    { title: "DCA", slug: "dca", desc: "Diploma in Computer Applications – ideal for office & data management skills.", icon: BookOpen },
+    { title: "ADCA", slug: "adca", desc: "Advanced Diploma in Computer Applications – professional-level computer education.", icon: BookOpen },
+    { title: "MDCA", slug: "mdca", desc: "Master Diploma in Computer Applications – complete IT training course.", icon: BookOpen },
+    { title: "PGDCA", slug: "pgdca", desc: "Post Graduate Diploma in Computer Applications – advanced IT qualification.", icon: BookOpen },
+    { title: "Basic Computer", slug: "basic-computer", desc: "Fundamentals of computer, MS Office, Internet, and Typing.", icon: BookOpen },
+    { title: "Advance Excel", slug: "advance-excel", desc: "Master Excel functions, formulas, and data analysis tools.", icon: BookOpen },
   ];
 
   const devCourses = [
-    { title: "Web Development", desc: "Frontend + Backend web development for modern websites.", icon: Code },
-    { title: "Python Programming", desc: "Learn Python from basics to advanced for automation and AI.", icon: Code },
-    { title: "Full Stack Development", desc: "Complete MERN stack (MongoDB, Express, React, Node.js).", icon: Monitor },
-    { title: "HTML", desc: "Structure web pages using HTML5.", icon: Code },
-    { title: "CSS", desc: "Style and design web layouts using CSS3.", icon: Code },
-    { title: "JavaScript", desc: "Add interactivity and logic to websites.", icon: Code },
-    { title: "Tailwind CSS", desc: "Rapid modern UI design using Tailwind CSS.", icon: Code },
-    { title: "Bootstrap", desc: "Responsive website layouts with Bootstrap 5.", icon: Code },
-    { title: "Node.js", desc: "Backend JavaScript for building APIs and servers.", icon: Code },
-    { title: "MongoDB", desc: "Learn NoSQL database for modern web apps.", icon: Code },
+    { title: "Web Development", slug: "web-development", desc: "Frontend + Backend web development for modern websites.", icon: Code },
+    { title: "Python Programming", slug: "python-programming", desc: "Learn Python from basics to advanced for automation and AI.", icon: Code },
+    { title: "Full Stack Development", slug: "full-stack-development", desc: "Complete MERN stack (MongoDB, Express, React, Node.js).", icon: Monitor },
+    { title: "HTML", slug: "html", desc: "Structure web pages using HTML5.", icon: Code },
+    { title: "CSS", slug: "css", desc: "Style and design web layouts using CSS3.", icon: Code },
+    { title: "JavaScript", slug: "javascript", desc: "Add interactivity and logic to websites.", icon: Code },
+    { title: "Tailwind CSS", slug: "tailwind-css", desc: "Rapid modern UI design using Tailwind CSS.", icon: Code },
+    { title: "Bootstrap", slug: "bootstrap", desc: "Responsive website layouts with Bootstrap 5.", icon: Code },
+    { title: "Node.js", slug: "nodejs", desc: "Backend JavaScript for building APIs and servers.", icon: Code },
+    { title: "MongoDB", slug: "mongodb", desc: "Learn NoSQL database for modern web apps.", icon: Code },
   ];
 
   return (
@@ -65,7 +66,9 @@ export default function CoursesSection() {
                   </CardHeader>
                   <CardContent>
                     <p className="text-sm text-muted-foreground mb-4">{course.desc}</p>
-                    <Button variant="outline" className="w-full">View Details</Button>
+                    <Link href={`/courses/${course.slug}`}>
+                      <Button variant="outline" className="w-full">View Details</Button>
+                    </Link>
                   </CardContent>
                 </Card>
               </motion.div>
@@ -97,7 +100,9 @@ export default function CoursesSection() {
                   </CardHeader>
                   <CardContent>
                     <p className="text-sm text-muted-foreground mb-4">{course.desc}</p>
-                    <Button variant="outline" className="w-full">View Details</Button>
+                    <Link href={`/courses/${course.slug}`}>
+                      <Button variant="outline" className="w-full">View Details</Button>
+                    </Link>
                   </CardContent>
                 </Card>
               </motion.div>
